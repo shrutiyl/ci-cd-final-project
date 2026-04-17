@@ -6,7 +6,13 @@ This project demonstrates CI/CD pipeline using:
 - OpenShift
 
 ## Features
-- Automated linting
-- Unit testing
-- Container build
+- Linting using flake8
+- Unit testing using nose
+- Docker containerization
 - Deployment on OpenShift
+
+## Project Structure
+- app/
+- tests/
+- .github/workflows/
+- tekton/
