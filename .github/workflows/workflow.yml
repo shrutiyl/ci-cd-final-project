@@ -19,13 +19,11 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install flake8
         pip install -r app/requirements.txt
+        pip install nose
 
     - name: Lint with flake8
-      run: |
-        flake8 app/
+      run: flake8 .
 
-    - name: Run tests
-      run: |
-        python -m unittest discover tests
+    - name: Run unit tests with nose
+      run: nosetests -v
