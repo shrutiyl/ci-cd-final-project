@@ -1,0 +1,27 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: run-tests
+spec:
+  steps:
+    - name: install
+      image: python:3.10
+      script: |
+        pip install -r requirements.txt
+
+    - name: test
+      image: python:3.10
+      script: |
+        python -m unittest discover
+
+---
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: cleanup
+spec:
+  steps:
+    - name: clean
+      image: alpine
+      script: |
+        echo "Cleaning workspace"
